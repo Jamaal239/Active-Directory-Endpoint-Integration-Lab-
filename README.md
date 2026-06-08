@@ -1,12 +1,12 @@
-# Enterprise Infrastructure Sandbox: Active Directory & Configuration Log
+# Enterprise Infrastructure Sandbox: Active Directory & Endpoint Deployment
 
 ## Project Overview
-This project details the end-to-end engineering, provisioning, and network optimization of a secure, isolated enterprise sandbox. Using Oracle VirtualBox, a primary Windows Server Domain Controller was deployed alongside a Windows 11 Enterprise client node. The environment was engineered using a strictly non-routable internal network topology to eliminate external attack vectors and simulate a hardened corporate network.
+This project details the end-to-end engineering, provisioning, and integration of a secure, isolated enterprise network infrastructure. Using Oracle VirtualBox, a primary Windows Server Domain Controller was deployed alongside a Windows 11 Enterprise client node. The environment was engineered using a strictly non-routable internal network topology to eliminate external attack vectors and simulate a secure corporate sandbox.
 
 ## Architectural Highlights (Recruiter Summary)
-* **Network Isolation Layer:** Configured an isolated internal network switch (`intnet`) to enforce strict local routing boundaries, demonstrating a production-grade security mindset.
+* **Network Isolation Layer:** Configured an isolated internal network switch (`intnet`) to enforce strict local routing boundaries, demonstrating a production-grade mindset toward sandbox security.
 * **Identity & Access Management (IAM):** Provisioned a localized Active Directory forest (`mydomain.local`) utilizing proper static IPv4 schemas and integrated DNS zone hierarchies.
-* **Engineering & Troubleshooting:** Successfully diagnosed and resolved interface routing loops caused by legacy multi-adapter bindings, achieving stable inter-VM communications.
+* **System Optimization & Troubleshooting:** Resolved interface routing loops caused by legacy NAT bindings and programmatically adjusted host firewalls to allow deterministic enterprise traffic.
 
 ---
 
@@ -63,9 +63,25 @@ This phase focuses on standardizing host configurations, modifying IP allocation
 
 * **Step 10: Connectivity Verification & Inter-VM Routing Fix**
   ![Successful ICMP Validation](screenshot_10 .jpg)
-  > **Technical Context:** Successfully resolved multi-adapter routing conflicts by isolating legacy NAT bindings, achieving full Layer 3 connectivity across the `intnet` vSwitch with 0% packet loss.
+  > **Technical Context:** Successfully resolved routing conflicts by disconnecting legacy NAT adapters, resulting in full Layer 3 connectivity across the `intnet` vSwitch with 0% packet loss.
 
 ---
 
-### Phase 4: Active Directory Forest Integration (Staged for Deployment)
-*The final phase tracking the interactive domain-join challenge sequence, identity verification (`whoami`), and administrative token confirmation will be pushed once active client logs are collected.*
+### Phase 4: Active Directory Forest Integration
+The final phase details the cryptographic domain-join sequence, administrative verification, and profile container synchronization on the target network.
+
+* **Step 11: Domain Directory Authentication Challenge**
+  ![Domain Join Credential Box](screenshot_11.png)
+  > **Technical Context:** Triggered the interactive domain-join challenge, successfully prompting the client machine to locate the `mydomain.local` directory zone via authoritative DNS lookups.
+
+* **Step 12: Successful Domain Admission**
+  ![Welcome to Domain Prompt](screenshot_12.png)
+  > **Technical Context:** Successfully authenticated administrative credentials, generating an active object reference in the domain controller database and admitting the client machine to the forest.
+
+* **Step 13: Centralized Identity Session Initiation**
+  ![Domain Profile Login View](image_148420.jpg)
+  > **Technical Context:** Initiated the profile compilation phase, logging into the workstation using the enterprise domain account (`MYDOMAIN\Administrator`).
+
+* **Step 14: Cryptographic Token & Environment Verification**
+  ![Whoami Context Validation](screenshot_14.png)
+  > **Technical Context:** Executed environmental diagnostics (`whoami`), verifying that the system successfully recognizes the local token under the primary domain administrative security descriptor.
