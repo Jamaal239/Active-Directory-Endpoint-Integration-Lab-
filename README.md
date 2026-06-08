@@ -79,7 +79,7 @@ The final phase details the cryptographic domain-join sequence, administrative v
   > **Technical Context:** Successfully authenticated administrative credentials, generating an active object reference in the domain controller database and admitting the client machine to the forest.
 
 * **Step 13: Centralized Identity Session Initiation**
-  ![Domain Profile Login View](screenshot_13.png)
+ ![Domain Profile Login View](screenshot_13.png)
   > **Technical Context:** Initiated the profile compilation phase, logging into the workstation using the enterprise domain account (`MYDOMAIN\Administrator`).
 
 * **Step 14: Cryptographic Token & Environment Verification**
