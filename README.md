@@ -14,48 +14,48 @@ This project demonstrates the setup and configuration of an isolated enterprise 
 
 ### Phase 1: Domain Controller Promotion & Hypervisor Staging
 
-#### Step 1: Active Directory Domain Promotion
-Promoting the Windows Server node to a Domain Controller by initializing a new Active Directory forest named `sandbox.local`.
-![Active Directory Domain Promotion](screenshots/screenshot_1.png)
+#### Step 1: Active Directory Domain Services Wizard Initialization
+Opening the Active Directory Domain Services configuration setup to begin the foundational process of promoting the server to a new enterprise forest.
+![Active Directory Domain Services Wizard Initialization](screenshots/screenshot_1.png)
 
-#### Step 2: Client Virtual Machine Creation
-Configuring the base system, storage resources, and hardware allocation for the Windows 11 client node within the VirtualBox manager.
-![Client Virtual Machine Creation](screenshots/screenshot_2.png)
+#### Step 2: Client Virtual Machine Hardware Optimization
+Configuring the system memory (RAM) and core virtualization motherboard properties for the Windows 11 client workstation inside VirtualBox.
+![Client Virtual Machine Hardware Optimization](screenshots/screenshot_2.png)
 
 ---
 
 ### Phase 2: Client Workstation Operating System Staging
 
-#### Step 3: Windows 11 Enterprise Installation Initialization
-Booting the client virtual machine from the installation media to run through the base setup parameters.
-![Windows 11 Setup](screenshots/screenshot_3.png)
+#### Step 3: Virtual Network Isolation Configuration
+Configuring the client virtual machine's network adapter inside VirtualBox, switching it to an isolated Internal Network to prevent external internet routing.
+![Virtual Network Isolation Configuration](screenshots/screenshot_3.png)
 
-#### Step 4: Completing Operating System Installation
-Monitoring the automated deployment process as Windows copies files, installs features, and configures the root desktop components.
-![Completing Operating System Installation](screenshots/screenshot_4.png)
+#### Step 4: Storage Partitioning and OS Installation Setup
+Selecting the unallocated virtual storage drive within the Windows 11 installation wizard to begin installing the base operating system files.
+![Storage Partitioning and OS Installation Setup](screenshots/screenshot_4.png)
 
-#### Step 5: VirtualBox Guest Additions Deployment
-Running the guest utility installer on the guest OS to enable shared clipboard integration and smooth display resolution scaling.
-![VirtualBox Guest Additions Deployment](screenshots/screenshot_5.png)
+#### Step 5: Completing Operating System Installation
+Monitoring the installation progress screen as the setup wizard finishes copying files, installing features, and applying configurations.
+![Completing Operating System Installation](screenshots/screenshot_5.png)
 
-#### Step 6: Local Administrator Account Creation
+#### Step 6: VirtualBox Guest Additions Deployment
+Running the VirtualBox Guest Additions utility installer within the active desktop environment to enable seamless display scaling and shared clipboard features.
+![VirtualBox Guest Additions Deployment](screenshots/screenshot_6.png)
+
+#### Step 7: Local Administrator Account Creation
 Provisioning the initial local administrator account profile (`sandboxadmin`) during the Windows Out-of-Box Experience (OOBE) setup phase.
-![Local Administrator Account Creation](screenshots/screenshot_6.png)
-
-#### Step 7: Finalizing Base Desktop Provisioning
-Booting into the clean local administrator profile to verify core desktop functionality before configuring network layers.
-![Finalizing Base Desktop Provisioning](screenshots/screenshot_7.png)
+![Local Administrator Account Creation](screenshots/screenshot_7.png)
 
 ---
 
 ### Phase 3: Network Optimization & Diagnostics
 
 #### Step 8: Hostname Standardization
-Enforcing corporate asset tagging rules by renaming the generic Windows machine to a structured asset ID (`W11-CLIENT-01`).
+Enforcing corporate asset tagging rules by renaming the generic Windows desktop machine within the System Settings to a structured asset ID (`W11-CLIENT-01`).
 ![Hostname Standardization](screenshots/screenshot_8.png)
 
 #### Step 9: Static IPv4 Schema & DNS Mapping
-Configuring a static IP address (`172.16.0.10/24`) on the workstation and setting its primary DNS gateway to point directly to the Domain Controller (`172.16.0.5`).
+Configuring a static IP address (`172.16.0.10/24`) on the workstation and setting its primary DNS gateway to point directly to the Domain Controller's identity interface (`172.16.0.5`).
 ![Static IPv4 Schema & DNS Mapping](screenshots/screenshot_9.png)
 
 #### Step 10: Connectivity Verification & Routing Fix
@@ -67,17 +67,17 @@ Troubleshooting network interfaces to resolve routing loops, establishing clean 
 ### Phase 4: Active Directory Forest Integration
 
 #### Step 11: Executing the Domain Join Action
-Opening the Computer Name/Domain Changes window on the workstation and entering domain credentials to initiate the directory handshake.
+Opening the Computer Name/Domain Changes window on the workstation and entering domain administrator credentials to initiate the directory handshake.
 ![Executing the Domain Join Action](screenshots/screenshot_11.png)
 
 #### Step 12: Verifying Successful Domain Admission
 Confirming the successful connection via the system confirmation dialog box welcoming the client machine to the `sandbox.local` domain.
 ![Verifying Successful Domain Admission](screenshots/screenshot_12.png)
 
-#### Step 13: Centralized Identity Session Initiation
-Logging into the newly connected workstation for the first time using the enterprise network account domain credentials (`sandbox.local\sandboxadmin`).
-![Centralized Identity Session Initiation](screenshots/screenshot_13.png)
-
-#### Step 14: Environment & Security Context Verification
+#### Step 13: Environment & Security Context Verification
 Running system environment diagnostics (`whoami /groups`) via the command line to verify that the workstation successfully recognizes the active network security context and administrator privileges.
-![Environment & Security Context Verification](screenshots/screenshot_14.png)
+![Environment & Security Context Verification](screenshots/screenshot_13.png)
+
+#### Step 14: Final Staged Enterprise Infrastructure
+Successfully booting into the fully configured domain workspace environment, validating the completion of the endpoint integration deployment.
+![Final Staged Enterprise Infrastructure](screenshots/screenshot_14.png)
